@@ -3,6 +3,7 @@ message: "If you use these data or code, please cite them as below."
 title: "Regulation, Demand Shocks, and Renter Cost Burdens, 2013-2024: Data and Code"
 version: 1.0.0
 date-released: 2026-11-09
+doi: 10.5281/zenodo.24091426
 license: MIT
 repository-code: "https://github.com/Emmanuel-Oti-Nani/Regulation-Demand-Shocks-Renter-Burdens"
 url: "https://emmanuel-oti-nani.github.io/Regulation-Demand-Shocks-Renter-Burdens/"

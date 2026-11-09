@@ -1,5 +1,7 @@
 # Regulation, Demand Shocks, and Renter Cost Burdens, 2013–2024
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24091426.svg)](https://doi.org/10.5281/zenodo.24091426)
+
 Data, code and interactive results for the paper:
 
 > Nani, E. O. (2026). *Regulation, Demand Shocks, and Renter Cost Burdens: Did Land-Use Restrictiveness Shape Who Bore the 2013–2024 Housing Squeeze?* Preprint.
@@ -59,7 +61,9 @@ Code is released under the MIT License and derived data under CC BY 4.0; see `LI
 
 ## Citation
 
-If you use these data or code, please cite the archived release (see `CITATION.cff`, or the "Cite this repository" button on GitHub).
+If you use these data or code, please cite the archived release (see `CITATION.cff`, or the "Cite this repository" button on GitHub):
+
+> Nani, E. O. (2026). *Regulation, Demand Shocks, and Renter Cost Burdens, 2013–2024: Data and Code* (Version 1.0.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.24091426
 
 ## Contact
 
