@@ -1,0 +1,19 @@
+{
+  "title": "Regulation, Demand Shocks, and Renter Cost Burdens, 2013-2024: Data and Code",
+  "upload_type": "dataset",
+  "description": "<p>Metro-by-year panel (2013&ndash;2024, excluding 2020) and replication code in R and Python for a study of whether restrictive land-use regulation amplified the effects of employment shocks and remote-work exposure on renter cost burdens, rents and permitting across U.S. metropolitan areas.</p><p>Contents: the analysis panel and codebook; source data from the American Community Survey, Building Permits Survey, Quarterly Census of Employment and Wages, CPI and OMB metropolitan delineations; metro averages of the Wharton Residential Land Use Regulatory Index 2018 and the NZLUD Zoning Restrictiveness Index; R and Python code that rebuilds the panel and reproduces every table and figure; and an interactive website.</p>",
+  "creators": [
+    {
+      "name": "Nani, Emmanuel Oti",
+      "affiliation": "Independent Researcher, Springfield, Missouri, USA",
+      "orcid": "0009-0009-4175-8962"
+    }
+  ],
+  "keywords": ["land-use regulation", "housing affordability", "rent burden", "housing supply", "shift-share", "remote work", "metropolitan areas"],
+  "license": "cc-by-4.0",
+  "access_right": "open",
+  "language": "eng",
+  "related_identifiers": [
+    {"identifier": "https://emmanuel-oti-nani.github.io/Regulation-Demand-Shocks-Renter-Burdens/", "relation": "isDocumentedBy", "resource_type": "other"}
+  ]
+}

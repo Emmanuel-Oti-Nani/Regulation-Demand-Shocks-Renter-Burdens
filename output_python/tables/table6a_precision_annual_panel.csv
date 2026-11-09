@@ -1,0 +1,8 @@
+Outcome,D x regulation,SE,90% CI low,90% CI high,MDE (80% power)
+"Log permits per 1,000 households",0.002,0.009,-0.013,0.018,0.027
+Renters paying >30% of income,-0.009,0.099,-0.172,0.154,0.277
+Renters paying >50% of income,-0.017,0.073,-0.137,0.104,0.206
+Log real median gross rent,-0.001,0.001,-0.003,0.001,0.004
+"Burden, renters under $35,000",-0.255,0.124,-0.459,-0.051,0.348
+"Burden, renters $35,000-$74,999",-0.021,0.171,-0.301,0.26,0.478
+"Burden, renters $75,000 or more",-0.041,0.082,-0.176,0.094,0.229

@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use these data or code, please cite them as below."
+title: "Regulation, Demand Shocks, and Renter Cost Burdens, 2013-2024: Data and Code"
+version: 1.0.0
+date-released: 2026-11-09
+license: MIT
+repository-code: "https://github.com/Emmanuel-Oti-Nani/Regulation-Demand-Shocks-Renter-Burdens"
+url: "https://emmanuel-oti-nani.github.io/Regulation-Demand-Shocks-Renter-Burdens/"
+type: software
+authors:
+  - family-names: Nani
+    given-names: Emmanuel Oti
+    orcid: "https://orcid.org/0009-0009-4175-8962"
+    affiliation: "Independent Researcher, Springfield, Missouri, USA"
+keywords:
+  - land-use regulation
+  - housing affordability
+  - rent burden
+  - housing supply
+  - shift-share
+  - remote work
+  - metropolitan areas
+abstract: >-
+  Metro-by-year panel (2013-2024, excluding 2020) and replication code in R and
+  Python for a study of whether restrictive land-use regulation amplified the
+  effects of employment shocks and remote-work exposure on renter cost burdens,
+  rents and permitting across U.S. metropolitan areas. Includes source data from
+  the American Community Survey, Building Permits Survey, QCEW, CPI and OMB
+  delineations, metro averages of the Wharton and NZLUD regulation indexes,
+  tables, figures and an interactive website.

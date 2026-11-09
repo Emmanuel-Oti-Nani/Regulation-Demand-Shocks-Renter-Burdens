@@ -1,0 +1,8 @@
+.Rproj.user/
+.Rhistory
+.RData
+__pycache__/
+*.pyc
+data/raw/WHARTON_LAND_REGULATION_DATA_01_15_2020.dta
+output/*.rds
+manuscript/

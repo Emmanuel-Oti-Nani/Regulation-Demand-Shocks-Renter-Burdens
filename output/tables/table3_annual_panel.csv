@@ -1,0 +1,8 @@
+Outcome,Shock (D),D x regulation,Observations,Metros
+"Log permits per 1,000 households",-0.069 (0.040),0.002 (0.010),1716,156
+Renters paying >30% of income,-0.757 (0.408),-0.009 (0.099),1716,156
+Renters paying >50% of income,-0.303 (0.301),-0.017 (0.073),1716,156
+Log real median gross rent,-0.007 (0.007),-0.001 (0.001),1716,156
+"Burden, renters under $35,000",-1.095 (0.450)*,-0.255 (0.124)*,1716,156
+"Burden, renters $35,000-$74,999",-0.508 (0.906),-0.021 (0.171),1716,156
+"Burden, renters $75,000 or more",-0.549 (0.491),-0.041 (0.082),1716,156

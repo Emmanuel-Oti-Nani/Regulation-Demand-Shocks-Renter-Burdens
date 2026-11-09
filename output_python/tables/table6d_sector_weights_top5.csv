@@ -1,0 +1,16 @@
+Outcome,sector,weight,beta_k
+Renters paying >30% of income,Accommodation and food,0.343,-0.077
+Renters paying >30% of income,Retail trade,0.114,0.093
+Renters paying >30% of income,Administrative services,0.112,0.124
+Renters paying >30% of income,Manufacturing,0.093,-0.006
+Renters paying >30% of income,Arts and recreation,0.069,0.0
+"Log permits per 1,000 households",Accommodation and food,0.343,0.006
+"Log permits per 1,000 households",Retail trade,0.114,-0.01
+"Log permits per 1,000 households",Administrative services,0.112,-0.002
+"Log permits per 1,000 households",Manufacturing,0.093,0.009
+"Log permits per 1,000 households",Arts and recreation,0.069,0.006
+Log real median gross rent,Accommodation and food,0.343,-0.001
+Log real median gross rent,Retail trade,0.114,-0.0
+Log real median gross rent,Administrative services,0.112,-0.001
+Log real median gross rent,Manufacturing,0.093,-0.005
+Log real median gross rent,Arts and recreation,0.069,-0.0

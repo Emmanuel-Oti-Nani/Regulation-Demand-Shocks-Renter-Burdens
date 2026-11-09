@@ -1,0 +1,211 @@
+
+== Step 1: building the panel ==
+Panel built: 402 metro areas, 367 observed in all 11 years.
+
+== Step 2: estimating the models ==
+Analysis complete: 163 metros in the main sample.
+Warning message:
+package 'fixest' was built under R version 4.4.3 
+
+== Step 3: tables and figures ==
+Tables and figures written. Manuscript check: 14 of 14 estimates match.
+Warning message:
+package 'ggplot2' was built under R version 4.4.2 
+
+== Step 4: additional robustness ==
+
+Additional robustness (04_robustness_extra.R)
+Precision, annual panel:
+                            outcome      b ci90_lo ci90_hi mde80
+                             <char>  <num>   <num>   <num> <num>
+1: Log permits per 1,000 households  0.002  -0.013   0.018 0.027
+2:    Renters paying >30% of income -0.009  -0.172   0.154 0.278
+3:    Renters paying >50% of income -0.017  -0.137   0.104 0.206
+4:       Log real median gross rent -0.001  -0.003   0.001 0.004
+5:    Burden, renters under $35,000 -0.255  -0.459  -0.050 0.348
+6:  Burden, renters $35,000-$74,999 -0.021  -0.301   0.260 0.478
+7:  Burden, renters $75,000 or more -0.041  -0.176   0.094 0.229
+Precision, long difference:
+                            outcome      b ci90_lo ci90_hi mde80
+                             <char>  <num>   <num>   <num> <num>
+1: Log permits per 1,000 households -0.027  -0.067   0.012 0.068
+2:    Renters paying >30% of income -0.345  -0.673  -0.017 0.558
+3:    Renters paying >50% of income -0.078  -0.667   0.510 1.003
+4:       Log real median gross rent -0.006  -0.012   0.000 0.010
+5:    Burden, renters under $35,000 -0.262  -0.771   0.247 0.867
+6:  Burden, renters $35,000-$74,999 -0.879  -1.912   0.154 1.760
+7:  Burden, renters $75,000 or more -0.326  -0.773   0.122 0.762
+State-clustered SEs:
+                            outcome           DxR    se_metro    se_state
+                             <char>         <num>       <num>       <num>
+1:    Renters paying >30% of income -0.0086978628 0.099058355 0.094024136
+2: Log permits per 1,000 households  0.0024171495 0.009500288 0.009447626
+3:       Log real median gross rent -0.0008832979 0.001390010 0.001374771
+     p_state
+       <num>
+1: 0.9267572
+2: 0.7993799
+3: 0.5242107
+Sector weights, burden30 - check: -0.0087 -0.0087 
+    naics                  sector     weight        beta_k
+   <char>                  <char>      <num>         <num>
+1:     72  Accommodation and food 0.34266550 -0.0768610297
+2:  44-45            Retail trade 0.11431654  0.0928773122
+3:     56 Administrative services 0.11216971  0.1243905276
+4:  31-33           Manufacturing 0.09343307 -0.0056091776
+5:     71     Arts and recreation 0.06861305  0.0004518007
+Sector weights, ln_permits - check: 0.0024 0.0024 
+    naics                  sector     weight       beta_k
+   <char>                  <char>      <num>        <num>
+1:     72  Accommodation and food 0.34266550  0.006130169
+2:  44-45            Retail trade 0.11431654 -0.010003222
+3:     56 Administrative services 0.11216971 -0.001598426
+4:  31-33           Manufacturing 0.09343307  0.008645265
+5:     71     Arts and recreation 0.06861305  0.006253273
+Sector weights, ln_rent - check: -9e-04 -9e-04 
+    naics                  sector     weight        beta_k
+   <char>                  <char>      <num>         <num>
+1:     72  Accommodation and food 0.34266550 -0.0010936789
+2:  44-45            Retail trade 0.11431654 -0.0002302285
+3:     56 Administrative services 0.11216971 -0.0009619159
+4:  31-33           Manufacturing 0.09343307 -0.0045015607
+5:     71     Arts and recreation 0.06861305 -0.0003723376
+Pre-trend tests:
+      outcome joint_chi2    df          p      avg_post avg_post_se
+       <char>      <num> <int>      <num>         <num>       <num>
+1:   burden30  11.326464     6 0.07879573 -0.2374821930 0.176526300
+2:    ln_rent   6.826641     6 0.33717749 -0.0005725654 0.003281195
+3: ln_permits  16.127686     6 0.01308479 -0.0101054354 0.013842088
+      detrended detrended_se
+          <num>        <num>
+1:  0.101649379  0.251929526
+2: -0.004825184  0.003334283
+3: -0.007162120  0.023884798
+Rambachan-Roth relative magnitudes (average 2021-2024 effect, burden >30%):
+     Mbar         lb        ub              method
+    <num>      <num>     <num>              <char>
+ 1:    NA -0.5834674 0.1085030            Original
+ 2:  0.00 -0.5760518 0.1024877 Relative magnitudes
+ 3:  0.25 -0.8587766 0.3852125 Relative magnitudes
+ 4:  0.50 -1.2545913 0.8234360 Relative magnitudes
+ 5:  0.75 -1.7140191 1.2899319 Relative magnitudes
+ 6:  1.00 -2.1875832 1.7634960 Relative magnitudes
+ 7:  1.25 -2.6611472 2.2441281 Relative magnitudes
+ 8:  1.50 -3.1488475 2.7247603 Relative magnitudes
+ 9:  1.75 -3.5305260 3.2053925 Relative magnitudes
+10:  2.00 -3.5305260 3.5305260 Relative magnitudes
+Breakdown value of Mbar: 0 
+Warning messages:
+1: package 'HonestDiD' was built under R version 4.4.3 
+2: In .ARP_computeCI(betahat = betahat, sigma = sigma, numPrePeriods = numPrePeriods,  :
+  CI is open at one of the endpoints; CI length may not be accurate
+3: In .ARP_computeCI(betahat = betahat, sigma = sigma, numPrePeriods = numPrePeriods,  :
+  CI is open at one of the endpoints; CI length may not be accurate
+4: In .ARP_computeCI(betahat = betahat, sigma = sigma, numPrePeriods = numPrePeriods,  :
+  CI is open at one of the endpoints; CI length may not be accurate
+5: In .ARP_computeCI(betahat = betahat, sigma = sigma, numPrePeriods = numPrePeriods,  :
+  CI is open at one of the endpoints; CI length may not be accurate
+6: In .ARP_computeCI(betahat = betahat, sigma = sigma, numPrePeriods = numPrePeriods,  :
+  CI is open at one of the endpoints; CI length may not be accurate
+
+Table 3. Annual panel: shift-share shock x regulation
+                            Outcome       Shock (D)  D x regulation
+                             <char>          <char>          <char>
+1: Log permits per 1,000 households  -0.069 (0.040)   0.002 (0.010)
+2:    Renters paying >30% of income  -0.757 (0.408)  -0.009 (0.099)
+3:    Renters paying >50% of income  -0.303 (0.301)  -0.017 (0.073)
+4:       Log real median gross rent  -0.007 (0.007)  -0.001 (0.001)
+5:    Burden, renters under $35,000 -1.095 (0.450)* -0.255 (0.124)*
+6:  Burden, renters $35,000-$74,999  -0.508 (0.906)  -0.021 (0.171)
+7:  Burden, renters $75,000 or more  -0.549 (0.491)  -0.041 (0.082)
+   Observations Metros
+          <int>  <int>
+1:         1716    156
+2:         1716    156
+3:         1716    156
+4:         1716    156
+5:         1716    156
+6:         1716    156
+7:         1716    156
+
+Table 4. Long difference 2019-2024: remote work x regulation
+                            Outcome Remote work (W) W x regulation
+                             <char>          <char>         <char>
+1: Log permits per 1,000 households   0.012 (0.020) -0.027 (0.024)
+2:    Renters paying >30% of income   0.467 (0.241) -0.345 (0.199)
+3:    Renters paying >50% of income  -0.068 (0.259) -0.078 (0.358)
+4:       Log real median gross rent 0.013 (0.004)** -0.006 (0.004)
+5:    Burden, renters under $35,000  -0.086 (0.289) -0.262 (0.310)
+6:  Burden, renters $35,000-$74,999  1.384 (0.575)* -0.879 (0.628)
+7:  Burden, renters $75,000 or more 1.211 (0.263)** -0.326 (0.272)
+       Regulation    R2     N
+           <char> <num> <int>
+1: -0.041 (0.040)  0.11   163
+2:  0.045 (0.429)  0.12   163
+3: -0.056 (0.426)  0.10   163
+4:  0.006 (0.007)  0.31   163
+5: -0.868 (0.640)  0.19   163
+6: -0.796 (1.162)  0.17   163
+7: 1.322 (0.513)*  0.42   163
+
+Table 5. Robustness of the shock x regulation interaction
+                   Specification Metros    Burden >30%    Log permits
+                          <char>  <int>         <char>         <char>
+ 1: Main (WRLURI, >=3 responses)    156 -0.009 (0.099)  0.002 (0.010)
+ 2:         WRLURI, >=1 response    276  0.000 (0.062)  0.006 (0.005)
+ 3:        WRLURI, >=5 responses     95 -0.058 (0.131)  0.004 (0.012)
+ 4:   WRLURI, unweighted average    156 -0.013 (0.102)  0.008 (0.011)
+ 5: Zoning Restrictiveness Index    185 -0.101 (0.072)  0.001 (0.007)
+ 6:        Shock lagged one year    156 -0.032 (0.027) -0.004 (0.003)
+ 7:               Excluding 2013    156  0.001 (0.100)  0.001 (0.010)
+ 8:               Excluding 2021    156 -0.046 (0.116) -0.008 (0.009)
+ 9:         Excluding California    142  0.005 (0.106) -0.005 (0.009)
+10:        Excluding New England    143  0.006 (0.104)  0.002 (0.010)
+     Log real rent
+            <char>
+ 1: -0.001 (0.001)
+ 2: -0.001 (0.001)
+ 3: -0.002 (0.002)
+ 4: -0.001 (0.001)
+ 5:  0.000 (0.001)
+ 6: -0.000 (0.000)
+ 7: -0.001 (0.001)
+ 8: -0.001 (0.002)
+ 9: -0.001 (0.001)
+10: -0.001 (0.001)
+
+Check against the manuscript
+                      table                          outcome paper_coef
+                     <char>                           <char>      <num>
+ 1: Table 3: D x regulation Log permits per 1,000 households      0.002
+ 2: Table 3: D x regulation    Renters paying >30% of income     -0.009
+ 3: Table 3: D x regulation    Renters paying >50% of income     -0.017
+ 4: Table 3: D x regulation       Log real median gross rent     -0.001
+ 5: Table 3: D x regulation    Burden, renters under $35,000     -0.255
+ 6: Table 3: D x regulation  Burden, renters $35,000-$74,999     -0.021
+ 7: Table 3: D x regulation  Burden, renters $75,000 or more     -0.041
+ 8: Table 4: W x regulation Log permits per 1,000 households     -0.027
+ 9: Table 4: W x regulation    Renters paying >30% of income     -0.345
+10: Table 4: W x regulation    Renters paying >50% of income     -0.078
+11: Table 4: W x regulation       Log real median gross rent     -0.006
+12: Table 4: W x regulation    Burden, renters under $35,000     -0.262
+13: Table 4: W x regulation  Burden, renters $35,000-$74,999     -0.879
+14: Table 4: W x regulation  Burden, renters $75,000 or more     -0.326
+    paper_se R_coef  R_se  match
+       <num>  <num> <num> <char>
+ 1:    0.009  0.002 0.010    yes
+ 2:    0.099 -0.009 0.099    yes
+ 3:    0.073 -0.017 0.073    yes
+ 4:    0.001 -0.001 0.001    yes
+ 5:    0.124 -0.255 0.124    yes
+ 6:    0.171 -0.021 0.171    yes
+ 7:    0.082 -0.041 0.082    yes
+ 8:    0.024 -0.027 0.024    yes
+ 9:    0.199 -0.345 0.199    yes
+10:    0.358 -0.078 0.358    yes
+11:    0.004 -0.006 0.004    yes
+12:    0.310 -0.262 0.310    yes
+13:    0.628 -0.879 0.628    yes
+14:    0.272 -0.326 0.272    yes
+
+Pandoc not found, so the HTML report was skipped. Open the .Rmd in RStudio and click Knit.

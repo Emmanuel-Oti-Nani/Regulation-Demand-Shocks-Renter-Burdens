@@ -1,0 +1,661 @@
+{
+ "equiv_A": {
+  "ln_permits": {
+   "b": 0.002,
+   "se": 0.009,
+   "ci90": [
+    -0.013,
+    0.018
+   ],
+   "ci95": [
+    -0.016,
+    0.021
+   ],
+   "mde80": 0.027,
+   "main_D": -0.069
+  },
+  "burden30": {
+   "b": -0.009,
+   "se": 0.099,
+   "ci90": [
+    -0.172,
+    0.154
+   ],
+   "ci95": [
+    -0.203,
+    0.185
+   ],
+   "mde80": 0.277,
+   "main_D": -0.757
+  },
+  "burden50": {
+   "b": -0.017,
+   "se": 0.073,
+   "ci90": [
+    -0.137,
+    0.104
+   ],
+   "ci95": [
+    -0.16,
+    0.127
+   ],
+   "mde80": 0.206,
+   "main_D": -0.303
+  },
+  "ln_rent": {
+   "b": -0.001,
+   "se": 0.001,
+   "ci90": [
+    -0.003,
+    0.001
+   ],
+   "ci95": [
+    -0.004,
+    0.002
+   ],
+   "mde80": 0.004,
+   "main_D": -0.007
+  },
+  "burden_lt35k": {
+   "b": -0.255,
+   "se": 0.124,
+   "ci90": [
+    -0.459,
+    -0.051
+   ],
+   "ci95": [
+    -0.498,
+    -0.011
+   ],
+   "mde80": 0.348,
+   "main_D": -1.095
+  },
+  "burden_35_75k": {
+   "b": -0.021,
+   "se": 0.171,
+   "ci90": [
+    -0.301,
+    0.26
+   ],
+   "ci95": [
+    -0.355,
+    0.314
+   ],
+   "mde80": 0.478,
+   "main_D": -0.508
+  },
+  "burden_75kp": {
+   "b": -0.041,
+   "se": 0.082,
+   "ci90": [
+    -0.176,
+    0.094
+   ],
+   "ci95": [
+    -0.201,
+    0.12
+   ],
+   "mde80": 0.229,
+   "main_D": -0.549
+  }
+ },
+ "equiv_B": {
+  "ln_permits": {
+   "b": -0.027,
+   "se": 0.024,
+   "ci90": [
+    -0.067,
+    0.012
+   ],
+   "ci95": [
+    -0.075,
+    0.02
+   ],
+   "mde80": 0.068,
+   "main_W": 0.012
+  },
+  "burden30": {
+   "b": -0.345,
+   "se": 0.199,
+   "ci90": [
+    -0.673,
+    -0.017
+   ],
+   "ci95": [
+    -0.735,
+    0.045
+   ],
+   "mde80": 0.558,
+   "main_W": 0.467
+  },
+  "burden50": {
+   "b": -0.078,
+   "se": 0.358,
+   "ci90": [
+    -0.667,
+    0.511
+   ],
+   "ci95": [
+    -0.78,
+    0.623
+   ],
+   "mde80": 1.003,
+   "main_W": -0.068
+  },
+  "ln_rent": {
+   "b": -0.006,
+   "se": 0.004,
+   "ci90": [
+    -0.012,
+    -0.0
+   ],
+   "ci95": [
+    -0.013,
+    0.001
+   ],
+   "mde80": 0.01,
+   "main_W": 0.013
+  },
+  "burden_lt35k": {
+   "b": -0.262,
+   "se": 0.31,
+   "ci90": [
+    -0.771,
+    0.247
+   ],
+   "ci95": [
+    -0.869,
+    0.344
+   ],
+   "mde80": 0.867,
+   "main_W": -0.086
+  },
+  "burden_35_75k": {
+   "b": -0.879,
+   "se": 0.628,
+   "ci90": [
+    -1.912,
+    0.154
+   ],
+   "ci95": [
+    -2.11,
+    0.352
+   ],
+   "mde80": 1.76,
+   "main_W": 1.384
+  },
+  "burden_75kp": {
+   "b": -0.326,
+   "se": 0.272,
+   "ci90": [
+    -0.773,
+    0.122
+   ],
+   "ci95": [
+    -0.859,
+    0.208
+   ],
+   "mde80": 0.762,
+   "main_W": 1.211
+  }
+ },
+ "state_cluster": {
+  "burden30": {
+   "DxR": -0.009,
+   "se_state": 0.094,
+   "states": 41
+  },
+  "ln_permits": {
+   "DxR": 0.002,
+   "se_state": 0.009,
+   "states": 41
+  },
+  "ln_rent": {
+   "DxR": -0.001,
+   "se_state": 0.001,
+   "states": 41
+  }
+ },
+ "sectors": {
+  "burden30": {
+   "check_sum_equals_estimate": [
+    -0.0087,
+    -0.0087
+   ],
+   "weight_sum": 1.0,
+   "negative_weight_share": 0.057,
+   "top5": [
+    {
+     "sector": "Accommodation and food",
+     "weight": 0.343,
+     "beta_k": -0.077
+    },
+    {
+     "sector": "Retail trade",
+     "weight": 0.114,
+     "beta_k": 0.093
+    },
+    {
+     "sector": "Administrative services",
+     "weight": 0.112,
+     "beta_k": 0.124
+    },
+    {
+     "sector": "Manufacturing",
+     "weight": 0.093,
+     "beta_k": -0.006
+    },
+    {
+     "sector": "Arts and recreation",
+     "weight": 0.069,
+     "beta_k": 0.0
+    }
+   ],
+   "loo_range": [
+    -0.036,
+    0.016
+   ],
+   "loo_any_significant": false,
+   "loo": [
+    {
+     "sector": "Agriculture",
+     "DxR": -0.018,
+     "se": 0.1
+    },
+    {
+     "sector": "Mining",
+     "DxR": 0.001,
+     "se": 0.099
+    },
+    {
+     "sector": "Utilities",
+     "DxR": -0.008,
+     "se": 0.099
+    },
+    {
+     "sector": "Construction",
+     "DxR": -0.015,
+     "se": 0.1
+    },
+    {
+     "sector": "Manufacturing",
+     "DxR": -0.013,
+     "se": 0.107
+    },
+    {
+     "sector": "Wholesale trade",
+     "DxR": -0.001,
+     "se": 0.102
+    },
+    {
+     "sector": "Retail trade",
+     "DxR": -0.023,
+     "se": 0.112
+    },
+    {
+     "sector": "Transportation and warehousing",
+     "DxR": -0.015,
+     "se": 0.106
+    },
+    {
+     "sector": "Information",
+     "DxR": -0.01,
+     "se": 0.103
+    },
+    {
+     "sector": "Finance and insurance",
+     "DxR": -0.008,
+     "se": 0.101
+    },
+    {
+     "sector": "Real estate",
+     "DxR": -0.008,
+     "se": 0.1
+    },
+    {
+     "sector": "Professional services",
+     "DxR": -0.008,
+     "se": 0.106
+    },
+    {
+     "sector": "Management of companies",
+     "DxR": -0.008,
+     "se": 0.1
+    },
+    {
+     "sector": "Administrative services",
+     "DxR": -0.036,
+     "se": 0.116
+    },
+    {
+     "sector": "Educational services",
+     "DxR": -0.003,
+     "se": 0.101
+    },
+    {
+     "sector": "Health care",
+     "DxR": -0.006,
+     "se": 0.088
+    },
+    {
+     "sector": "Arts and recreation",
+     "DxR": -0.002,
+     "se": 0.105
+    },
+    {
+     "sector": "Accommodation and food",
+     "DxR": 0.016,
+     "se": 0.148
+    },
+    {
+     "sector": "Other services",
+     "DxR": 0.006,
+     "se": 0.106
+    }
+   ]
+  },
+  "ln_permits": {
+   "check_sum_equals_estimate": [
+    0.0024,
+    0.0024
+   ],
+   "weight_sum": 1.0,
+   "negative_weight_share": 0.057,
+   "top5": [
+    {
+     "sector": "Accommodation and food",
+     "weight": 0.343,
+     "beta_k": 0.006
+    },
+    {
+     "sector": "Retail trade",
+     "weight": 0.114,
+     "beta_k": -0.01
+    },
+    {
+     "sector": "Administrative services",
+     "weight": 0.112,
+     "beta_k": -0.002
+    },
+    {
+     "sector": "Manufacturing",
+     "weight": 0.093,
+     "beta_k": 0.009
+    },
+    {
+     "sector": "Arts and recreation",
+     "weight": 0.069,
+     "beta_k": 0.006
+    }
+   ],
+   "loo_range": [
+    -0.001,
+    0.005
+   ],
+   "loo_any_significant": false,
+   "loo": [
+    {
+     "sector": "Agriculture",
+     "DxR": 0.003,
+     "se": 0.01
+    },
+    {
+     "sector": "Mining",
+     "DxR": 0.003,
+     "se": 0.009
+    },
+    {
+     "sector": "Utilities",
+     "DxR": 0.002,
+     "se": 0.009
+    },
+    {
+     "sector": "Construction",
+     "DxR": 0.004,
+     "se": 0.01
+    },
+    {
+     "sector": "Manufacturing",
+     "DxR": 0.001,
+     "se": 0.01
+    },
+    {
+     "sector": "Wholesale trade",
+     "DxR": 0.003,
+     "se": 0.01
+    },
+    {
+     "sector": "Retail trade",
+     "DxR": 0.005,
+     "se": 0.011
+    },
+    {
+     "sector": "Transportation and warehousing",
+     "DxR": 0.001,
+     "se": 0.01
+    },
+    {
+     "sector": "Information",
+     "DxR": 0.003,
+     "se": 0.01
+    },
+    {
+     "sector": "Finance and insurance",
+     "DxR": 0.002,
+     "se": 0.01
+    },
+    {
+     "sector": "Real estate",
+     "DxR": 0.002,
+     "se": 0.01
+    },
+    {
+     "sector": "Professional services",
+     "DxR": 0.003,
+     "se": 0.01
+    },
+    {
+     "sector": "Management of companies",
+     "DxR": 0.003,
+     "se": 0.01
+    },
+    {
+     "sector": "Administrative services",
+     "DxR": 0.003,
+     "se": 0.011
+    },
+    {
+     "sector": "Educational services",
+     "DxR": 0.002,
+     "se": 0.01
+    },
+    {
+     "sector": "Health care",
+     "DxR": 0.002,
+     "se": 0.009
+    },
+    {
+     "sector": "Arts and recreation",
+     "DxR": 0.003,
+     "se": 0.01
+    },
+    {
+     "sector": "Accommodation and food",
+     "DxR": -0.001,
+     "se": 0.012
+    },
+    {
+     "sector": "Other services",
+     "DxR": -0.0,
+     "se": 0.01
+    }
+   ]
+  },
+  "ln_rent": {
+   "check_sum_equals_estimate": [
+    -0.0009,
+    -0.0009
+   ],
+   "weight_sum": 1.0,
+   "negative_weight_share": 0.057,
+   "top5": [
+    {
+     "sector": "Accommodation and food",
+     "weight": 0.343,
+     "beta_k": -0.001
+    },
+    {
+     "sector": "Retail trade",
+     "weight": 0.114,
+     "beta_k": -0.0
+    },
+    {
+     "sector": "Administrative services",
+     "weight": 0.112,
+     "beta_k": -0.001
+    },
+    {
+     "sector": "Manufacturing",
+     "weight": 0.093,
+     "beta_k": -0.005
+    },
+    {
+     "sector": "Arts and recreation",
+     "weight": 0.069,
+     "beta_k": -0.0
+    }
+   ],
+   "loo_range": [
+    -0.001,
+    -0.001
+   ],
+   "loo_any_significant": false,
+   "loo": [
+    {
+     "sector": "Agriculture",
+     "DxR": -0.001,
+     "se": 0.001
+    },
+    {
+     "sector": "Mining",
+     "DxR": -0.001,
+     "se": 0.001
+    },
+    {
+     "sector": "Utilities",
+     "DxR": -0.001,
+     "se": 0.001
+    },
+    {
+     "sector": "Construction",
+     "DxR": -0.001,
+     "se": 0.001
+    },
+    {
+     "sector": "Manufacturing",
+     "DxR": -0.001,
+     "se": 0.001
+    },
+    {
+     "sector": "Wholesale trade",
+     "DxR": -0.001,
+     "se": 0.001
+    },
+    {
+     "sector": "Retail trade",
+     "DxR": -0.001,
+     "se": 0.002
+    },
+    {
+     "sector": "Transportation and warehousing",
+     "DxR": -0.001,
+     "se": 0.001
+    },
+    {
+     "sector": "Information",
+     "DxR": -0.001,
+     "se": 0.001
+    },
+    {
+     "sector": "Finance and insurance",
+     "DxR": -0.001,
+     "se": 0.001
+    },
+    {
+     "sector": "Real estate",
+     "DxR": -0.001,
+     "se": 0.001
+    },
+    {
+     "sector": "Professional services",
+     "DxR": -0.001,
+     "se": 0.002
+    },
+    {
+     "sector": "Management of companies",
+     "DxR": -0.001,
+     "se": 0.001
+    },
+    {
+     "sector": "Administrative services",
+     "DxR": -0.001,
+     "se": 0.002
+    },
+    {
+     "sector": "Educational services",
+     "DxR": -0.001,
+     "se": 0.001
+    },
+    {
+     "sector": "Health care",
+     "DxR": -0.001,
+     "se": 0.001
+    },
+    {
+     "sector": "Arts and recreation",
+     "DxR": -0.001,
+     "se": 0.001
+    },
+    {
+     "sector": "Accommodation and food",
+     "DxR": -0.001,
+     "se": 0.002
+    },
+    {
+     "sector": "Other services",
+     "DxR": -0.001,
+     "se": 0.001
+    }
+   ]
+  }
+ },
+ "pretrend": {
+  "burden30": {
+   "joint_pre_test_chi2": 11.33,
+   "df": 6,
+   "p": 0.079,
+   "avg_post": -0.237,
+   "avg_post_se": 0.176,
+   "detrended_avg_post": 0.102,
+   "detrended_se": 0.252
+  },
+  "ln_rent": {
+   "joint_pre_test_chi2": 6.83,
+   "df": 6,
+   "p": 0.337,
+   "avg_post": -0.001,
+   "avg_post_se": 0.003,
+   "detrended_avg_post": -0.005,
+   "detrended_se": 0.003
+  },
+  "ln_permits": {
+   "joint_pre_test_chi2": 16.14,
+   "df": 6,
+   "p": 0.013,
+   "avg_post": -0.01,
+   "avg_post_se": 0.014,
+   "detrended_avg_post": -0.007,
+   "detrended_se": 0.024
+  }
+ }
+}

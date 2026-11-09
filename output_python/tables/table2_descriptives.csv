@@ -1,0 +1,13 @@
+Variable,Mean,SD,Min,Max
+Renters paying >30% of income (%),49.96,5.54,30.5,68.29
+Renters paying >50% of income (%),25.04,4.34,10.12,42.36
+"Burden, renters under $35,000 (%)",84.41,6.75,58.36,99.4
+"Burden, renters $35,000-$74,999 (%)",34.24,20.33,1.13,92.03
+"Burden, renters $75,000 or more (%)",4.84,5.62,0.0,36.06
+Real median gross rent (2024 $),1229.02,331.41,725.02,2870.52
+"Permits per 1,000 households",10.62,8.05,0.32,58.0
+Predicted employment growth (%),2.27,1.1,-0.28,6.41
+"Worked from home, 2019 (%)",5.48,1.75,2.2,13.7
+WRLURI 2018 (unstandardized),0.01,0.6,-1.53,1.65
+"Real median household income, 2013 (2024 $)",66782.39,12026.52,43493.51,115816.93
+"Bachelor's degree or higher, 2013 (%)",28.95,7.98,13.5,58.53

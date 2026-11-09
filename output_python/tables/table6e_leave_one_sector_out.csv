@@ -1,0 +1,58 @@
+Outcome,sector,DxR,se
+Renters paying >30% of income,Agriculture,-0.018,0.1
+Renters paying >30% of income,Mining,0.001,0.099
+Renters paying >30% of income,Utilities,-0.008,0.099
+Renters paying >30% of income,Construction,-0.015,0.1
+Renters paying >30% of income,Manufacturing,-0.013,0.107
+Renters paying >30% of income,Wholesale trade,-0.001,0.102
+Renters paying >30% of income,Retail trade,-0.023,0.112
+Renters paying >30% of income,Transportation and warehousing,-0.015,0.106
+Renters paying >30% of income,Information,-0.01,0.103
+Renters paying >30% of income,Finance and insurance,-0.008,0.101
+Renters paying >30% of income,Real estate,-0.008,0.1
+Renters paying >30% of income,Professional services,-0.008,0.106
+Renters paying >30% of income,Management of companies,-0.008,0.1
+Renters paying >30% of income,Administrative services,-0.036,0.116
+Renters paying >30% of income,Educational services,-0.003,0.101
+Renters paying >30% of income,Health care,-0.006,0.088
+Renters paying >30% of income,Arts and recreation,-0.002,0.105
+Renters paying >30% of income,Accommodation and food,0.016,0.148
+Renters paying >30% of income,Other services,0.006,0.106
+"Log permits per 1,000 households",Agriculture,0.003,0.01
+"Log permits per 1,000 households",Mining,0.003,0.009
+"Log permits per 1,000 households",Utilities,0.002,0.009
+"Log permits per 1,000 households",Construction,0.004,0.01
+"Log permits per 1,000 households",Manufacturing,0.001,0.01
+"Log permits per 1,000 households",Wholesale trade,0.003,0.01
+"Log permits per 1,000 households",Retail trade,0.005,0.011
+"Log permits per 1,000 households",Transportation and warehousing,0.001,0.01
+"Log permits per 1,000 households",Information,0.003,0.01
+"Log permits per 1,000 households",Finance and insurance,0.002,0.01
+"Log permits per 1,000 households",Real estate,0.002,0.01
+"Log permits per 1,000 households",Professional services,0.003,0.01
+"Log permits per 1,000 households",Management of companies,0.003,0.01
+"Log permits per 1,000 households",Administrative services,0.003,0.011
+"Log permits per 1,000 households",Educational services,0.002,0.01
+"Log permits per 1,000 households",Health care,0.002,0.009
+"Log permits per 1,000 households",Arts and recreation,0.003,0.01
+"Log permits per 1,000 households",Accommodation and food,-0.001,0.012
+"Log permits per 1,000 households",Other services,-0.0,0.01
+Log real median gross rent,Agriculture,-0.001,0.001
+Log real median gross rent,Mining,-0.001,0.001
+Log real median gross rent,Utilities,-0.001,0.001
+Log real median gross rent,Construction,-0.001,0.001
+Log real median gross rent,Manufacturing,-0.001,0.001
+Log real median gross rent,Wholesale trade,-0.001,0.001
+Log real median gross rent,Retail trade,-0.001,0.002
+Log real median gross rent,Transportation and warehousing,-0.001,0.001
+Log real median gross rent,Information,-0.001,0.001
+Log real median gross rent,Finance and insurance,-0.001,0.001
+Log real median gross rent,Real estate,-0.001,0.001
+Log real median gross rent,Professional services,-0.001,0.002
+Log real median gross rent,Management of companies,-0.001,0.001
+Log real median gross rent,Administrative services,-0.001,0.002
+Log real median gross rent,Educational services,-0.001,0.001
+Log real median gross rent,Health care,-0.001,0.001
+Log real median gross rent,Arts and recreation,-0.001,0.001
+Log real median gross rent,Accommodation and food,-0.001,0.002
+Log real median gross rent,Other services,-0.001,0.001

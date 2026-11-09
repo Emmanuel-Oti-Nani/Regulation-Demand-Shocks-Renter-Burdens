@@ -1,0 +1,113 @@
+---
+title: "Regulation, Demand Shocks, and Renter Cost Burdens, 2013–2024"
+subtitle: "Analysis report: tables and figures"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: flatly
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.align = "center")
+knitr::opts_knit$set(root.dir = normalizePath("."))
+library(data.table); library(fixest); library(ggplot2); library(knitr)
+# Re-run the analysis if the results are missing
+if (!file.exists("output/results.rds") || !file.exists("output/results_extra.rds")) {
+  source("R/01_build_panel.R"); source("R/02_analysis.R"); source("R/04_robustness_extra.R")
+}
+source("R/03_tables_figures.R")
+res <- readRDS("output/results.rds")
+ex <- readRDS("output/results_extra.rds")
+```
+
+This report re-creates every table and figure in the manuscript from the raw data in `data/raw`. The main sample has **`r res$n_main_metros` metropolitan areas** with at least three jurisdictions responding to the 2018 Wharton survey.
+
+## Table 2. Descriptive statistics
+
+```{r}
+kable(t2, align = "lrrrr", caption = "Main sample, metro-years 2013–2024 excluding 2020.")
+```
+
+## Figure 1. Trends by tercile of land-use restrictiveness
+
+```{r, fig.width = 7.5, fig.height = 3.4}
+fig1
+```
+
+## Table 3. Annual panel: shift-share employment shock × regulation
+
+```{r}
+kable(t3, align = "lccrr", caption = paste(
+  "Metro fixed effects, division-by-year effects, and 2013 log real income and college share interacted with year.",
+  "Standard errors clustered by metro in parentheses. * p < 0.05; ** p < 0.01."))
+```
+
+First stage: a one-point increase in predicted employment growth raises actual private employment growth by
+`r sprintf("%.2f", coef(res$first_stage)["D"])` points (standard error `r sprintf("%.2f", se(res$first_stage)["D"])`).
+
+## Table 4. Long difference, 2019–2024: remote work × regulation
+
+```{r}
+kable(t4, align = "lcccrr", caption = paste(
+  "Change 2019–2024 regressed on centered 2019 work-from-home share, its interaction with the standardized WRLURI,",
+  "the WRLURI, 2013 controls, and division effects. Robust standard errors. * p < 0.05; ** p < 0.01."))
+```
+
+## Figure 2. Event study: remote work × regulation
+
+```{r, fig.width = 6, fig.height = 3}
+fig2
+```
+
+## Table 5. Robustness of the shock × regulation interaction
+
+```{r}
+kable(t5, align = "lrccc", caption = "Coefficient on the shock × regulation interaction from the Table 3 specification.")
+```
+
+Long-difference robustness (burden >30%):
+
+```{r}
+kable(res$robustB[, .(Specification = specification, `W x regulation` = sprintf("%.3f (%.3f)", WxR_b, WxR_se), N)],
+      align = "lcr")
+```
+
+## Table 6. Additional robustness
+
+Precision of the regulation interactions (90% confidence intervals and minimum detectable effects at 80% power):
+
+```{r}
+f3 <- function(x) sprintf("%.3f", x)
+kable(ex$equiv_A[, .(Outcome = outcome, `D x regulation` = f3(b), SE = f3(se), `90% CI` = paste0("[", f3(ci90_lo), ", ", f3(ci90_hi), "]"), `MDE (80% power)` = f3(mde80))],
+      align = "lcccc", caption = "Annual panel (Table 3 specification).")
+kable(ex$equiv_B[, .(Outcome = outcome, `W x regulation` = f3(b), SE = f3(se), `90% CI` = paste0("[", f3(ci90_lo), ", ", f3(ci90_hi), "]"), `MDE (80% power)` = f3(mde80))],
+      align = "lcccc", caption = "Long difference, 2019-2024 (Table 4 specification).")
+```
+
+Standard errors clustered by state:
+
+```{r}
+kable(ex$state_cluster[, .(Outcome = outcome, `D x regulation` = f3(DxR), `SE (metro)` = f3(se_metro), `SE (state)` = f3(se_state), `p (state)` = f3(p_state))], align = "lcccc")
+```
+
+Shift-share sector weights for the burden >30% interaction (five largest):
+
+```{r}
+kable(head(ex$sectors$burden30$weights, 5)[, .(Sector = sector, Weight = f3(weight), `Sector estimate` = f3(beta_k))], align = "lcc")
+```
+
+Pre-trend tests in the remote-work event study and the Rambachan-Roth sensitivity analysis (average 2021-2024 effect on burden >30%):
+
+```{r}
+kable(fread(file.path("output", "tables", "table6f_pretrend_tests.csv"))[, lapply(.SD, function(x) if (is.numeric(x)) round(x, 3) else x)])
+kable(ex$honestdid[, .(Method = method, Mbar, `Lower bound` = f3(lb), `Upper bound` = f3(ub))], align = "lccc")
+```
+
+## Check against the manuscript
+
+```{r}
+kable(res$check, align = "llrrrrc",
+      caption = "R estimates compared with the values printed in the manuscript (Python/numpy).")
+```

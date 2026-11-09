@@ -1,0 +1,15 @@
+table,outcome,paper_coef,paper_se,R_coef,R_se,match
+Table 3: D x regulation,"Log permits per 1,000 households",0.002,0.009,0.002,0.01,yes
+Table 3: D x regulation,Renters paying >30% of income,-0.009,0.099,-0.009,0.099,yes
+Table 3: D x regulation,Renters paying >50% of income,-0.017,0.073,-0.017,0.073,yes
+Table 3: D x regulation,Log real median gross rent,-0.001,0.001,-0.001,0.001,yes
+Table 3: D x regulation,"Burden, renters under $35,000",-0.255,0.124,-0.255,0.124,yes
+Table 3: D x regulation,"Burden, renters $35,000-$74,999",-0.021,0.171,-0.021,0.171,yes
+Table 3: D x regulation,"Burden, renters $75,000 or more",-0.041,0.082,-0.041,0.082,yes
+Table 4: W x regulation,"Log permits per 1,000 households",-0.027,0.024,-0.027,0.024,yes
+Table 4: W x regulation,Renters paying >30% of income,-0.345,0.199,-0.345,0.199,yes
+Table 4: W x regulation,Renters paying >50% of income,-0.078,0.358,-0.078,0.358,yes
+Table 4: W x regulation,Log real median gross rent,-0.006,0.004,-0.006,0.004,yes
+Table 4: W x regulation,"Burden, renters under $35,000",-0.262,0.31,-0.262,0.31,yes
+Table 4: W x regulation,"Burden, renters $35,000-$74,999",-0.879,0.628,-0.879,0.628,yes
+Table 4: W x regulation,"Burden, renters $75,000 or more",-0.326,0.272,-0.326,0.272,yes

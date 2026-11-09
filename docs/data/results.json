@@ -1,0 +1,456 @@
+{
+ "interactions_A": [
+  {
+   "key": "ln_permits",
+   "label": "Log permits per 1,000 households",
+   "b": 0.002,
+   "se": 0.009,
+   "lo": -0.016,
+   "hi": 0.021,
+   "lo90": -0.013,
+   "hi90": 0.018,
+   "main": -0.069
+  },
+  {
+   "key": "burden30",
+   "label": "Burden >30%",
+   "b": -0.009,
+   "se": 0.099,
+   "lo": -0.203,
+   "hi": 0.185,
+   "lo90": -0.172,
+   "hi90": 0.154,
+   "main": -0.757
+  },
+  {
+   "key": "burden50",
+   "label": "Severe burden >50%",
+   "b": -0.017,
+   "se": 0.073,
+   "lo": -0.16,
+   "hi": 0.127,
+   "lo90": -0.137,
+   "hi90": 0.104,
+   "main": -0.303
+  },
+  {
+   "key": "ln_rent",
+   "label": "Log real rent",
+   "b": -0.001,
+   "se": 0.001,
+   "lo": -0.004,
+   "hi": 0.002,
+   "lo90": -0.003,
+   "hi90": 0.001,
+   "main": -0.007
+  },
+  {
+   "key": "burden_lt35k",
+   "label": "Burden, income < $35k",
+   "b": -0.255,
+   "se": 0.124,
+   "lo": -0.498,
+   "hi": -0.011,
+   "lo90": -0.459,
+   "hi90": -0.051,
+   "main": -1.095
+  },
+  {
+   "key": "burden_35_75k",
+   "label": "Burden, $35k\u2013$75k",
+   "b": -0.021,
+   "se": 0.171,
+   "lo": -0.355,
+   "hi": 0.314,
+   "lo90": -0.301,
+   "hi90": 0.26,
+   "main": -0.508
+  },
+  {
+   "key": "burden_75kp",
+   "label": "Burden, $75k+",
+   "b": -0.041,
+   "se": 0.082,
+   "lo": -0.201,
+   "hi": 0.12,
+   "lo90": -0.176,
+   "hi90": 0.094,
+   "main": -0.549
+  }
+ ],
+ "interactions_B": [
+  {
+   "key": "ln_permits",
+   "label": "Log permits per 1,000 households",
+   "b": -0.027,
+   "se": 0.024,
+   "lo": -0.075,
+   "hi": 0.02,
+   "lo90": -0.067,
+   "hi90": 0.012,
+   "main": 0.012
+  },
+  {
+   "key": "burden30",
+   "label": "Burden >30%",
+   "b": -0.345,
+   "se": 0.199,
+   "lo": -0.735,
+   "hi": 0.045,
+   "lo90": -0.673,
+   "hi90": -0.017,
+   "main": 0.467
+  },
+  {
+   "key": "burden50",
+   "label": "Severe burden >50%",
+   "b": -0.078,
+   "se": 0.358,
+   "lo": -0.78,
+   "hi": 0.623,
+   "lo90": -0.667,
+   "hi90": 0.511,
+   "main": -0.068
+  },
+  {
+   "key": "ln_rent",
+   "label": "Log real rent",
+   "b": -0.006,
+   "se": 0.004,
+   "lo": -0.013,
+   "hi": 0.001,
+   "lo90": -0.012,
+   "hi90": -0.0,
+   "main": 0.013
+  },
+  {
+   "key": "burden_lt35k",
+   "label": "Burden, income < $35k",
+   "b": -0.262,
+   "se": 0.31,
+   "lo": -0.869,
+   "hi": 0.344,
+   "lo90": -0.771,
+   "hi90": 0.247,
+   "main": -0.086
+  },
+  {
+   "key": "burden_35_75k",
+   "label": "Burden, $35k\u2013$75k",
+   "b": -0.879,
+   "se": 0.628,
+   "lo": -2.11,
+   "hi": 0.352,
+   "lo90": -1.912,
+   "hi90": 0.154,
+   "main": 1.384
+  },
+  {
+   "key": "burden_75kp",
+   "label": "Burden, $75k+",
+   "b": -0.326,
+   "se": 0.272,
+   "lo": -0.859,
+   "hi": 0.208,
+   "lo90": -0.773,
+   "hi90": 0.122,
+   "main": 1.211
+  }
+ ],
+ "event": {
+  "burden30": [
+   {
+    "year": 2013,
+    "b": 0.185,
+    "se": 0.255
+   },
+   {
+    "year": 2014,
+    "b": -0.128,
+    "se": 0.262
+   },
+   {
+    "year": 2015,
+    "b": -0.437,
+    "se": 0.275
+   },
+   {
+    "year": 2016,
+    "b": -0.142,
+    "se": 0.203
+   },
+   {
+    "year": 2017,
+    "b": -0.224,
+    "se": 0.238
+   },
+   {
+    "year": 2018,
+    "b": -0.35,
+    "se": 0.187
+   },
+   {
+    "year": 2019,
+    "b": 0.0,
+    "se": 0.0
+   },
+   {
+    "year": 2021,
+    "b": -0.195,
+    "se": 0.211
+   },
+   {
+    "year": 2022,
+    "b": -0.281,
+    "se": 0.266
+   },
+   {
+    "year": 2023,
+    "b": -0.123,
+    "se": 0.275
+   },
+   {
+    "year": 2024,
+    "b": -0.351,
+    "se": 0.198
+   }
+  ],
+  "ln_rent": [
+   {
+    "year": 2013,
+    "b": -0.003,
+    "se": 0.003
+   },
+   {
+    "year": 2014,
+    "b": -0.001,
+    "se": 0.003
+   },
+   {
+    "year": 2015,
+    "b": 0.001,
+    "se": 0.002
+   },
+   {
+    "year": 2016,
+    "b": 0.001,
+    "se": 0.002
+   },
+   {
+    "year": 2017,
+    "b": 0.0,
+    "se": 0.002
+   },
+   {
+    "year": 2018,
+    "b": 0.004,
+    "se": 0.002
+   },
+   {
+    "year": 2019,
+    "b": 0.0,
+    "se": 0.0
+   },
+   {
+    "year": 2021,
+    "b": 0.002,
+    "se": 0.003
+   },
+   {
+    "year": 2022,
+    "b": 0.003,
+    "se": 0.005
+   },
+   {
+    "year": 2023,
+    "b": -0.001,
+    "se": 0.004
+   },
+   {
+    "year": 2024,
+    "b": -0.006,
+    "se": 0.004
+   }
+  ],
+  "ln_permits": [
+   {
+    "year": 2013,
+    "b": -0.015,
+    "se": 0.025
+   },
+   {
+    "year": 2014,
+    "b": -0.014,
+    "se": 0.023
+   },
+   {
+    "year": 2015,
+    "b": -0.022,
+    "se": 0.026
+   },
+   {
+    "year": 2016,
+    "b": -0.047,
+    "se": 0.02
+   },
+   {
+    "year": 2017,
+    "b": -0.007,
+    "se": 0.021
+   },
+   {
+    "year": 2018,
+    "b": -0.014,
+    "se": 0.018
+   },
+   {
+    "year": 2019,
+    "b": 0.0,
+    "se": 0.0
+   },
+   {
+    "year": 2021,
+    "b": -0.012,
+    "se": 0.016
+   },
+   {
+    "year": 2022,
+    "b": 0.005,
+    "se": 0.017
+   },
+   {
+    "year": 2023,
+    "b": -0.006,
+    "se": 0.019
+   },
+   {
+    "year": 2024,
+    "b": -0.028,
+    "se": 0.024
+   }
+  ]
+ },
+ "sectors": [
+  {
+   "sector": "Accommodation and food",
+   "weight": 0.343,
+   "beta_k": -0.077
+  },
+  {
+   "sector": "Retail trade",
+   "weight": 0.114,
+   "beta_k": 0.093
+  },
+  {
+   "sector": "Administrative services",
+   "weight": 0.112,
+   "beta_k": 0.124
+  },
+  {
+   "sector": "Manufacturing",
+   "weight": 0.093,
+   "beta_k": -0.006
+  },
+  {
+   "sector": "Arts and recreation",
+   "weight": 0.069,
+   "beta_k": 0.0
+  }
+ ],
+ "pretrend": {
+  "burden30": {
+   "joint_pre_test_chi2": 11.33,
+   "df": 6,
+   "p": 0.079,
+   "avg_post": -0.237,
+   "avg_post_se": 0.176,
+   "detrended_avg_post": 0.102,
+   "detrended_se": 0.252
+  },
+  "ln_rent": {
+   "joint_pre_test_chi2": 6.83,
+   "df": 6,
+   "p": 0.337,
+   "avg_post": -0.001,
+   "avg_post_se": 0.003,
+   "detrended_avg_post": -0.005,
+   "detrended_se": 0.003
+  },
+  "ln_permits": {
+   "joint_pre_test_chi2": 16.14,
+   "df": 6,
+   "p": 0.013,
+   "avg_post": -0.01,
+   "avg_post_se": 0.014,
+   "detrended_avg_post": -0.007,
+   "detrended_se": 0.024
+  }
+ },
+ "n_main": 163,
+ "first_stage": {
+  "b": 1.103,
+  "se": 0.276
+ },
+ "honestdid": [
+  {
+   "Mbar": null,
+   "lb": -0.583,
+   "ub": 0.109,
+   "method": "Original"
+  },
+  {
+   "Mbar": 0.0,
+   "lb": -0.576,
+   "ub": 0.102,
+   "method": "Relative magnitudes"
+  },
+  {
+   "Mbar": 0.25,
+   "lb": -0.859,
+   "ub": 0.385,
+   "method": "Relative magnitudes"
+  },
+  {
+   "Mbar": 0.5,
+   "lb": -1.255,
+   "ub": 0.823,
+   "method": "Relative magnitudes"
+  },
+  {
+   "Mbar": 0.75,
+   "lb": -1.714,
+   "ub": 1.29,
+   "method": "Relative magnitudes"
+  },
+  {
+   "Mbar": 1.0,
+   "lb": -2.188,
+   "ub": 1.763,
+   "method": "Relative magnitudes"
+  },
+  {
+   "Mbar": 1.25,
+   "lb": -2.661,
+   "ub": 2.244,
+   "method": "Relative magnitudes"
+  },
+  {
+   "Mbar": 1.5,
+   "lb": -3.149,
+   "ub": 2.725,
+   "method": "Relative magnitudes"
+  },
+  {
+   "Mbar": 1.75,
+   "lb": -3.531,
+   "ub": 3.205,
+   "method": "Relative magnitudes"
+  },
+  {
+   "Mbar": 2.0,
+   "lb": -3.531,
+   "ub": 3.531,
+   "method": "Relative magnitudes"
+  }
+ ]
+}

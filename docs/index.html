@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Renter Burdens and Regulation</title>
+<meta name="description" content="Interactive maps and results: did land-use regulation make local demand shocks hit U.S. renters harder, 2013–2024?">
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+  --grid: #e1e0d9; --axis: #c3c2b7; --ring: rgba(11,11,11,0.10);
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --accent: #2a78d6;
+  --seq-0: #cde2fb; --seq-1: #9ec5f4; --seq-2: #6da7ec; --seq-3: #3987e5; --seq-4: #256abf; --seq-5: #184f95; --seq-6: #0d366b;
+  --div-neg-2: #256abf; --div-neg-1: #86b6ef; --div-mid: #e7e6e1; --div-pos-1: #f0a09f; --div-pos-2: #c93b3a;
+  --nodata: #ecebe6; --state: #ffffff; --hover: #0b0b0b;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,0.10);
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --accent: #6da7ec;
+    --seq-0: #1c2a3d; --seq-1: #1a3a63; --seq-2: #184f95; --seq-3: #256abf; --seq-4: #3987e5; --seq-5: #6da7ec; --seq-6: #b7d3f6;
+    --div-neg-2: #3987e5; --div-neg-1: #1c4a80; --div-mid: #383835; --div-pos-1: #8a3332; --div-pos-2: #e66767;
+    --nodata: #262624; --state: #1a1a19; --hover: #f0efec;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
+  --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,0.10);
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --accent: #6da7ec;
+  --seq-0: #1c2a3d; --seq-1: #1a3a63; --seq-2: #184f95; --seq-3: #256abf; --seq-4: #3987e5; --seq-5: #6da7ec; --seq-6: #b7d3f6;
+  --div-neg-2: #3987e5; --div-neg-1: #1c4a80; --div-mid: #383835; --div-pos-1: #8a3332; --div-pos-2: #e66767;
+  --nodata: #262624; --state: #1a1a19; --hover: #f0efec;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+a { color: var(--accent); }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+header { padding: 40px 0 24px; border-bottom: 1px solid var(--grid); }
+.eyebrow { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+h1 { font-size: clamp(26px, 4vw, 38px); line-height: 1.15; margin: 0 0 12px; max-width: 26ch; }
+.lede { font-size: 18px; color: var(--ink-2); max-width: 68ch; margin: 0 0 16px; }
+.meta { font-size: 14px; color: var(--ink-2); display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.meta a { text-decoration: none; } .meta a:hover { text-decoration: underline; }
+.theme-btn { margin-left: auto; background: none; border: 1px solid var(--grid); color: var(--ink-2); border-radius: 6px; padding: 2px 10px; font: inherit; font-size: 13px; cursor: pointer; }
+section { padding: 32px 0; border-bottom: 1px solid var(--grid); }
+h2 { font-size: 22px; margin: 0 0 6px; }
+.sub { color: var(--ink-2); margin: 0 0 18px; max-width: 72ch; }
+.card { background: var(--surface); border: 1px solid var(--ring); border-radius: 10px; padding: 16px; }
+.controls { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: end; margin-bottom: 12px; }
+.ctl { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--ink-2); }
+select, input[type=search] { font: inherit; font-size: 15px; color: var(--ink); background: var(--surface); border: 1px solid var(--axis); border-radius: 6px; padding: 6px 8px; min-width: min(200px, 100%); max-width: 100%; }
+.ctl { max-width: 100%; }
+.scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+@media (max-width: 640px) { .scroll > svg { min-width: 640px; } .scroll > svg.coef { min-width: 460px; } }
+input[type=range] { width: min(320px, 70vw); accent-color: var(--accent); }
+.yearlabel { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--ink); font-size: 15px; }
+.map-wrap { position: relative; }
+svg { display: block; width: 100%; height: auto; overflow: visible; }
+.metro { stroke: var(--surface); stroke-width: .6; cursor: pointer; }
+.metro:hover, .metro.sel { stroke: var(--hover); stroke-width: 1.6; }
+.metro.dim { opacity: .25; }
+.statepath { fill: var(--state); stroke: var(--axis); stroke-width: .6; }
+.legend { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; font-size: 13px; color: var(--ink-2); margin-top: 8px; }
+.legend .sw { display: inline-flex; align-items: center; gap: 4px; font-variant-numeric: tabular-nums; }
+.legend .chip { width: 22px; height: 12px; border-radius: 3px; border: 1px solid var(--ring); }
+.tip { position: absolute; pointer-events: none; background: var(--surface); color: var(--ink); border: 1px solid var(--ring); border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,.12); padding: 8px 10px; font-size: 13px; line-height: 1.4; max-width: 280px; opacity: 0; transition: opacity .08s; z-index: 5; }
+.tip b { font-weight: 600; } .tip .k { color: var(--ink-2); }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.grid2 > * { min-width: 0; }
+@media (max-width: 820px) { .grid2 { grid-template-columns: 1fr; } }
+.facts { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 12px; }
+.fact { border: 1px solid var(--grid); border-radius: 8px; padding: 6px 10px; font-size: 13px; color: var(--ink-2); }
+.fact b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.axis text { fill: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+.axis path, .axis line { stroke: var(--axis); }
+.gridline line { stroke: var(--grid); } .gridline path { display: none; }
+.zero { stroke: var(--axis); stroke-width: 1.2; }
+.lbl { font-size: 12px; fill: var(--ink-2); }
+.dlabel { font-size: 12px; font-weight: 600; }
+.note { font-size: 13px; color: var(--muted); margin: 8px 0 0; }
+.toggle { background: none; border: none; color: var(--accent); font: inherit; font-size: 13px; padding: 0; cursor: pointer; text-decoration: underline; }
+table.tv { border-collapse: collapse; font-size: 13px; margin-top: 10px; width: 100%; font-variant-numeric: tabular-nums; }
+table.tv th, table.tv td { text-align: right; padding: 4px 8px; border-bottom: 1px solid var(--grid); }
+table.tv th:first-child, table.tv td:first-child { text-align: left; }
+.hidden { display: none; }
+.findings { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 8px; }
+@media (max-width: 820px) { .findings { grid-template-columns: 1fr; } }
+.finding { border-left: 3px solid var(--accent); padding: 4px 0 4px 12px; color: var(--ink-2); font-size: 15px; }
+.finding b { color: var(--ink); }
+footer { padding: 28px 0 48px; font-size: 14px; color: var(--ink-2); }
+footer h3 { font-size: 15px; color: var(--ink); margin: 0 0 6px; }
+footer ul { margin: 0 0 16px; padding-left: 18px; }
+@media (forced-colors: active) { .metro { forced-color-adjust: none; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <p class="eyebrow">Interactive results · U.S. metropolitan areas, 2013–2024</p>
+    <h1>Did land-use regulation make demand shocks hit renters harder?</h1>
+    <p class="lede">About half of U.S. renter households spend more than 30 percent of their income on housing. This site lets you explore renter cost burdens, rents, permits and regulation across 367 metropolitan areas, and see the study's main estimates.</p>
+    <div class="meta">
+      <span>Emmanuel Oti Nani · <a href="https://orcid.org/0009-0009-4175-8962">ORCID</a></span>
+      <a href="https://github.com/Emmanuel-Oti-Nani/Regulation-Demand-Shocks-Renter-Burdens">Data and code on GitHub</a>
+      <span id="doi-link"></span>
+      <button class="theme-btn" id="theme" type="button" aria-label="Switch color theme">Dark mode</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="wrap">
+    <h2>Key findings</h2>
+    <div class="findings">
+      <div class="finding"><b>Employment growth lowered burdens.</b> Metros with faster predicted job growth saw renter cost burdens fall, especially for renters earning under $35,000.</div>
+      <div class="finding"><b>Remote work raised them.</b> Metros where more people already worked from home in 2019 saw rents and burdens rise after 2020, mostly among middle- and higher-income renters.</div>
+      <div class="finding"><b>Regulation did not amplify either shock.</b> Neither effect was stronger in more restrictive metros, and permitting did not respond less there. The estimates are precise enough to rule out large amplification.</div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="map-h">
+  <div class="wrap">
+    <h2 id="map-h">Explore the metros</h2>
+    <p class="sub">Choose a measure and a year. Hover over a metro for details, or click it to see its trend below. The 2020 American Community Survey was not released as standard 1-year data, so 2020 is skipped.</p>
+    <div class="card">
+      <div class="controls">
+        <label class="ctl">Measure
+          <select id="measure"></select>
+        </label>
+        <label class="ctl" id="year-ctl">Year <span class="yearlabel" id="yearlabel"></span>
+          <input type="range" id="year" min="0" max="10" step="1" value="10" aria-label="Year">
+        </label>
+        <label class="ctl">Metros shown
+          <select id="sample">
+            <option value="all">All 367 metros in the panel</option>
+            <option value="main">Main sample (163 with 3+ Wharton responses)</option>
+          </select>
+        </label>
+      </div>
+      <div class="map-wrap" id="mapwrap">
+        <svg id="map" viewBox="0 0 975 610" role="img" aria-labelledby="map-title"><title id="map-title">Map of U.S. metropolitan areas colored by the selected measure</title></svg>
+        <div class="tip" id="tip" role="status"></div>
+      </div>
+      <div class="legend" id="legend"></div>
+      <p class="note" id="map-note"></p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="ex-h">
+  <div class="wrap">
+    <h2 id="ex-h">Metro explorer</h2>
+    <p class="sub">The selected metro compared with the average of its regulation group (terciles of the Wharton index in the main sample) and the average of all 367 metros.</p>
+    <div class="card">
+      <div class="controls">
+        <label class="ctl">Find a metro
+          <input type="search" id="metro-search" list="metro-list" placeholder="Type a name, e.g. Springfield, MO">
+          <datalist id="metro-list"></datalist>
+        </label>
+        <label class="ctl">Measure
+          <select id="measure2"></select>
+        </label>
+      </div>
+      <h3 id="ex-name" style="margin:4px 0 2px;font-size:18px"></h3>
+      <div class="facts" id="facts"></div>
+      <div style="position:relative" id="linewrap" class="scroll">
+        <svg id="line" viewBox="0 0 960 340" role="img" aria-labelledby="line-title"><title id="line-title">Trend for the selected metro</title></svg>
+        <div class="tip" id="tip2" role="status"></div>
+      </div>
+      <button class="toggle" id="t-line" type="button">Show as a table</button>
+      <div id="line-table" class="hidden"></div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="res-h">
+  <div class="wrap">
+    <h2 id="res-h">The main estimates</h2>
+    <p class="sub">Each dot is how much more (or less) a demand shock moved renter cost burdens in a metro one standard deviation more restrictive on the Wharton index. Positive values would mean regulation amplified the shock. Thick bars are 90% confidence intervals and thin bars 95%. Units are percentage points of renters.</p>
+    <div class="grid2">
+      <div class="card">
+        <h3 style="margin:0 0 4px;font-size:16px">Employment shock × regulation</h3>
+        <p class="note" style="margin:0 0 8px">Annual panel, 2013–2024. Per 1-point shift-share employment shock.</p>
+        <div class="scroll"><svg id="coefA" class="coef" viewBox="0 0 520 300" role="img" aria-label="Interaction estimates for the employment shock"></svg></div>
+      </div>
+      <div class="card">
+        <h3 style="margin:0 0 4px;font-size:16px">Remote work × regulation</h3>
+        <p class="note" style="margin:0 0 8px">Change 2019–2024. Per 1-point higher 2019 work-from-home share.</p>
+        <div class="scroll"><svg id="coefB" class="coef" viewBox="0 0 520 300" role="img" aria-label="Interaction estimates for remote-work exposure"></svg></div>
+      </div>
+    </div>
+    <div class="tip" id="tip3" role="status" style="position:fixed"></div>
+    <button class="toggle" id="t-coef" type="button" style="margin-top:10px">Show as a table</button>
+    <div id="coef-table" class="hidden"></div>
+
+    <div class="card" style="margin-top:16px">
+      <h3 style="margin:0 0 4px;font-size:16px">Event study: remote work × regulation, year by year</h3>
+      <p class="note" style="margin:0 0 8px">Renters paying more than 30% of income. Coefficients relative to 2019, with 95% confidence intervals.</p>
+      <div style="position:relative" id="eswrap" class="scroll">
+        <svg id="es" viewBox="0 0 960 320" role="img" aria-label="Event study coefficients by year"></svg>
+        <div class="tip" id="tip4" role="status"></div>
+      </div>
+      <p class="note" id="es-note"></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <h3>Data sources</h3>
+    <ul>
+      <li>U.S. Census Bureau: American Community Survey 1-year estimates; Building Permits Survey; cartographic boundary files (2023).</li>
+      <li>U.S. Bureau of Labor Statistics: Quarterly Census of Employment and Wages; CPI-U all items less shelter.</li>
+      <li>Gyourko, Hartley &amp; Krimmel (2019, 2021): Wharton Residential Land Use Regulatory Index 2018.</li>
+      <li>Mleczko &amp; Desmond (2023): National Zoning and Land Use Database.</li>
+    </ul>
+    <h3>Citation</h3>
+    <p id="cite">Nani, E. O. (2026). Regulation, Demand Shocks, and Renter Cost Burdens, 2013–2024: Data and Code (Version 1.0.0).</p>
+    <p>Code: MIT License. Derived data: CC BY 4.0.</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>
+const DOI = "";   // filled in after the Zenodo release
+if (DOI) {
+  document.getElementById('doi-link').innerHTML = `<a href="https://doi.org/${DOI}">Archived release: doi:${DOI}</a>`;
+  document.getElementById('cite').textContent += ` https://doi.org/${DOI}`;
+}
+
+// ---- theme toggle ---------------------------------------------------------------
+const root = document.documentElement, themeBtn = document.getElementById('theme');
+function isDark() { return root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches; }
+function syncThemeLabel() { themeBtn.textContent = isDark() ? 'Light mode' : 'Dark mode'; }
+try { const t = localStorage.getItem('theme'); if (t) root.dataset.theme = t; } catch (e) {}
+syncThemeLabel();
+themeBtn.addEventListener('click', () => {
+  root.dataset.theme = isDark() ? 'light' : 'dark';
+  try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+  syncThemeLabel(); redrawAll();
+});
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { syncThemeLabel(); redrawAll(); });
+const css = v => getComputedStyle(root).getPropertyValue(v).trim();
+
+// ---- measures -----------------------------------------------------------------
+const MEASURES = [
+  { key: 'burden30', label: 'Renters paying >30% of income', fmt: v => v.toFixed(1) + '%', time: true },
+  { key: 'burden50', label: 'Renters paying >50% of income', fmt: v => v.toFixed(1) + '%', time: true },
+  { key: 'burden_lt35k', label: 'Burden, renters under $35,000', fmt: v => v.toFixed(1) + '%', time: true },
+  { key: 'burden_35_75k', label: 'Burden, renters $35,000–$74,999', fmt: v => v.toFixed(1) + '%', time: true },
+  { key: 'burden_75kp', label: 'Burden, renters $75,000+', fmt: v => v.toFixed(1) + '%', time: true },
+  { key: 'real_rent', label: 'Median gross rent (2024 dollars)', fmt: v => '$' + Math.round(v).toLocaleString(), time: true },
+  { key: 'permits_per_1k', label: 'Housing units permitted per 1,000 households', fmt: v => v.toFixed(1), time: true },
+  { key: 'wrluri_z', label: 'Regulation: Wharton index (SD from average)', fmt: v => (v > 0 ? '+' : '') + v.toFixed(2), time: false, diverging: true },
+  { key: 'wfh2019', label: 'Worked from home in 2019', fmt: v => v.toFixed(1) + '%', time: false },
+];
+const TIME_MEASURES = MEASURES.filter(m => m.time);
+
+let DATA, YEARS, CBSA, STATES, RES, byId = new Map(), selected = null;
+const state = { measure: 'burden30', yi: 10, sample: 'all', measure2: 'burden30' };
+
+Promise.all([d3.json('data/metros.json'), d3.json('data/cbsa.json'), d3.json('data/states.json'), d3.json('data/results.json')])
+  .then(([m, c, s, r]) => {
+    DATA = m.metros; YEARS = m.years; CBSA = c; STATES = s; RES = r;
+    DATA.forEach(d => byId.set(d.id, d));
+    setup();
+  });
+
+function setup() {
+  const sel = d3.select('#measure'), sel2 = d3.select('#measure2');
+  MEASURES.forEach(m => sel.append('option').attr('value', m.key).text(m.label));
+  TIME_MEASURES.forEach(m => sel2.append('option').attr('value', m.key).text(m.label));
+  sel.on('change', e => { state.measure = e.target.value; if (MEASURES.find(m => m.key === state.measure).time) { state.measure2 = state.measure; sel2.property('value', state.measure); drawLine(); } drawMap(); });
+  sel2.on('change', e => { state.measure2 = e.target.value; drawLine(); });
+  d3.select('#year').on('input', e => { state.yi = +e.target.value; drawMap(); });
+  d3.select('#sample').on('change', e => { state.sample = e.target.value; drawMap(); });
+  const dl = d3.select('#metro-list');
+  DATA.slice().sort((a, b) => d3.ascending(a.name, b.name)).forEach(d => dl.append('option').attr('value', d.name));
+  d3.select('#metro-search').on('change', e => {
+    const d = DATA.find(x => x.name.toLowerCase() === e.target.value.toLowerCase());
+    if (d) { selected = d.id; drawMap(); drawLine(); }
+  });
+  selected = (DATA.find(d => d.name.startsWith('Springfield, MO')) || DATA[0]).id;
+  d3.select('#t-line').on('click', () => toggle('#line-table', '#t-line'));
+  d3.select('#t-coef').on('click', () => toggle('#coef-table', '#t-coef'));
+  redrawAll();
+}
+function toggle(t, b) { const el = d3.select(t); const h = el.classed('hidden'); el.classed('hidden', !h); d3.select(b).text(h ? 'Hide table' : 'Show as a table'); }
+function redrawAll() { if (!DATA) return; drawMap(); drawLine(); drawCoefs(); drawES(); }
+
+// ---- map -----------------------------------------------------------------------
+const projection = d3.geoAlbersUsa().scale(1300).translate([487.5, 305]);
+const path = d3.geoPath(projection);
+function valueOf(d, key, yi) {
+  const v = MEASURES.find(m => m.key === key).time ? d[key][yi] : d[key];
+  return v == null ? null : v;
+}
+function drawMap() {
+  const m = MEASURES.find(x => x.key === state.measure);
+  d3.select('#year-ctl').style('opacity', m.time ? 1 : .4);
+  d3.select('#year').property('disabled', !m.time);
+  d3.select('#yearlabel').text(m.time ? YEARS[state.yi] : '(fixed)');
+  const shown = d => state.sample === 'all' || d.main;
+  const vals = DATA.filter(shown).map(d => valueOf(d, m.key, state.yi)).filter(v => v != null);
+  let color, bins, chips;
+  if (m.diverging) {
+    const cols = ['--div-neg-2', '--div-neg-1', '--div-mid', '--div-pos-1', '--div-pos-2'].map(css);
+    bins = [-1, -0.33, 0.33, 1];
+    color = d3.scaleThreshold().domain(bins).range(cols);
+    chips = [['Below −1 (less restrictive)', cols[0]], ['−1 to −0.33', cols[1]], ['Near average', cols[2]], ['0.33 to 1', cols[3]], ['Above 1 (more restrictive)', cols[4]]];
+  } else {
+    const cols = ['--seq-0', '--seq-1', '--seq-2', '--seq-3', '--seq-4', '--seq-5', '--seq-6'].map(css);
+    // Quantile breaks on all years of the measure, so colors are comparable across years
+    const all = m.time ? DATA.filter(shown).flatMap(d => d[m.key]).filter(v => v != null) : vals;
+    bins = d3.range(1, 7).map(i => d3.quantileSorted(all.slice().sort(d3.ascending), i / 7));
+    color = d3.scaleThreshold().domain(bins).range(cols);
+    const ext = d3.extent(all);
+    chips = cols.map((c, i) => [`${m.fmt(i === 0 ? ext[0] : bins[i - 1])}–${m.fmt(i === 6 ? ext[1] : bins[i])}`, c]);
+  }
+  const svg = d3.select('#map');
+  if (svg.select('g.states').empty()) {
+    svg.append('g').attr('class', 'states').selectAll('path').data(STATES.features).join('path').attr('class', 'statepath').attr('d', path);
+    svg.append('g').attr('class', 'metros');
+  }
+  const tip = d3.select('#tip');
+  svg.select('g.metros').selectAll('path').data(CBSA.features, f => f.properties.CBSAFP).join('path')
+    .attr('class', 'metro').attr('d', path)
+    .attr('fill', f => { const d = byId.get(f.properties.CBSAFP); const v = d && valueOf(d, m.key, state.yi); return v == null ? css('--nodata') : color(v); })
+    .classed('dim', f => { const d = byId.get(f.properties.CBSAFP); return !d || !shown(d); })
+    .classed('sel', f => f.properties.CBSAFP === selected)
+    .on('mousemove', (e, f) => {
+      const d = byId.get(f.properties.CBSAFP); if (!d) return;
+      const v = valueOf(d, m.key, state.yi);
+      const [x, y] = d3.pointer(e, document.getElementById('mapwrap'));
+      tip.html(`<b>${d.name}</b><br><span class="k">${m.label}${m.time ? ', ' + YEARS[state.yi] : ''}:</span> ${v == null ? 'not available' : m.fmt(v)}`
+        + `<br><span class="k">Wharton index:</span> ${d.wrluri_z == null ? 'no survey responses' : (d.wrluri_z > 0 ? '+' : '') + d.wrluri_z.toFixed(2) + ' SD'}${d.n_resp ? ` (${d.n_resp} response${d.n_resp > 1 ? 's' : ''})` : ''}`
+        + `<br><span class="k">${d.main ? 'In the main sample' : 'Not in the main sample'}</span>`)
+        .style('left', Math.min(x + 14, document.getElementById('mapwrap').clientWidth - 290) + 'px').style('top', (y + 14) + 'px').style('opacity', 1);
+    })
+    .on('mouseleave', () => tip.style('opacity', 0))
+    .on('click', (e, f) => { selected = f.properties.CBSAFP; drawMap(); drawLine(); document.getElementById('ex-h').scrollIntoView({ behavior: 'smooth' }); })
+    .sort((a, b) => (a.properties.CBSAFP === selected) - (b.properties.CBSAFP === selected));
+  const lg = d3.select('#legend').html('');
+  chips.forEach(([t, c]) => lg.append('span').attr('class', 'sw').html(`<span class="chip" style="background:${c}"></span>${t}`));
+  lg.append('span').attr('class', 'sw').html(`<span class="chip" style="background:${css('--nodata')}"></span>No data`);
+  d3.select('#map-note').text(m.diverging
+    ? 'The Wharton index is standardized across metros: 0 is the average metro, positive values are more restrictive. Metros with no survey responses are shown as no data.'
+    : 'Color classes are sevenths of all metro-years shown, so the same color means the same value in every year.');
+}
+
+// ---- metro explorer -----------------------------------------------------------
+function drawLine() {
+  const d = byId.get(selected); if (!d) return;
+  const m = MEASURES.find(x => x.key === state.measure2);
+  d3.select('#ex-name').text(d.name);
+  d3.select('#metro-search').property('value', '');
+  const facts = [
+    ['Wharton index', d.wrluri_z == null ? 'no responses' : `${d.wrluri_z > 0 ? '+' : ''}${d.wrluri_z.toFixed(2)} SD`],
+    ['Survey responses', d.n_resp ?? 0], ['Regulation group', d.tercile ?? 'not in main sample'],
+    ['Worked from home, 2019', d.wfh2019 == null ? 'n/a' : d.wfh2019.toFixed(1) + '%'],
+    ['Households, 2024', d.households.toLocaleString()]];
+  d3.select('#facts').html(facts.map(([k, v]) => `<span class="fact">${k}: <b>${v}</b></span>`).join(''));
+  const avg = (rows) => YEARS.map((y, i) => d3.mean(rows, r => r[m.key][i]));
+  const series = [{ name: d.name.split(',')[0], vals: d[m.key], color: css('--s1') }];
+  if (d.tercile) series.push({ name: d.tercile + ' metros', vals: avg(DATA.filter(x => x.tercile === d.tercile)), color: css('--s2') });
+  series.push({ name: 'All 367 metros', vals: avg(DATA), color: css('--s3') });
+
+  const W = 960, H = 340, M = { t: 16, r: 190, b: 34, l: 64 };
+  const x = d3.scalePoint().domain(d3.range(2013, 2025)).range([M.l, W - M.r]);
+  const allv = series.flatMap(s => s.vals).filter(v => v != null);
+  const y = d3.scaleLinear().domain(d3.extent(allv)).nice().range([H - M.b, M.t]);
+  const svg = d3.select('#line').html('');
+  svg.append('title').text(`${m.label}: ${d.name}`);
+  svg.append('g').attr('class', 'gridline').attr('transform', `translate(${M.l},0)`).call(d3.axisLeft(y).ticks(5).tickSize(-(W - M.l - M.r)).tickFormat(''));
+  svg.append('g').attr('class', 'axis').attr('transform', `translate(${M.l},0)`).call(d3.axisLeft(y).ticks(5).tickFormat(v => m.fmt(v)).tickSizeOuter(0));
+  svg.append('g').attr('class', 'axis').attr('transform', `translate(0,${H - M.b})`).call(d3.axisBottom(x).tickFormat(v => v === 2020 ? '' : v).tickSizeOuter(0));
+  svg.append('text').attr('class', 'lbl').attr('x', x(2020)).attr('y', H - M.b - 6).attr('text-anchor', 'middle').text('no data');
+  const pts = s => YEARS.map((yy, i) => ({ year: yy, v: s.vals[i] }));
+  const line = d3.line().defined(p => p.v != null && p.year !== 2020).x(p => x(p.year)).y(p => y(p.v));
+  series.forEach(s => {
+    const p = pts(s);
+    // break the line at the missing 2020 survey
+    [p.filter(q => q.year <= 2019), p.filter(q => q.year >= 2021)].forEach(seg =>
+      svg.append('path').attr('d', line(seg)).attr('fill', 'none').attr('stroke', s.color).attr('stroke-width', 2).attr('stroke-linejoin', 'round'));
+    svg.append('g').selectAll('circle').data(p.filter(q => q.v != null)).join('circle')
+      .attr('cx', q => x(q.year)).attr('cy', q => y(q.v)).attr('r', 3.5).attr('fill', s.color).attr('stroke', css('--surface')).attr('stroke-width', 1.5);
+  });
+  // direct labels at the right end, nudged apart
+  const ends = series.map(s => ({ s, y: y(s.vals[s.vals.length - 1]) })).sort((a, b) => a.y - b.y);
+  for (let i = 1; i < ends.length; i++) if (ends[i].y - ends[i - 1].y < 16) ends[i].y = ends[i - 1].y + 16;
+  ends.forEach(e => svg.append('text').attr('class', 'dlabel').attr('x', W - M.r + 10).attr('y', e.y + 4).attr('fill', css('--ink')).text(e.s.name)
+    .call(t => svg.insert('rect', 'text.dlabel').attr('x', W - M.r + 2).attr('y', e.y - 1).attr('width', 6).attr('height', 2).attr('fill', e.s.color)));
+  // hover: crosshair + tooltip
+  const tip = d3.select('#tip2'), cross = svg.append('line').attr('stroke', css('--axis')).attr('y1', M.t).attr('y2', H - M.b).style('opacity', 0);
+  svg.append('rect').attr('x', M.l).attr('y', M.t).attr('width', W - M.l - M.r).attr('height', H - M.t - M.b).attr('fill', 'transparent')
+    .on('mousemove', e => {
+      const [mx] = d3.pointer(e); const yr = x.domain().reduce((a, b) => Math.abs(x(b) - mx) < Math.abs(x(a) - mx) ? b : a);
+      if (yr === 2020) { tip.style('opacity', 0); cross.style('opacity', 0); return; }
+      const i = YEARS.indexOf(yr);
+      cross.attr('x1', x(yr)).attr('x2', x(yr)).style('opacity', 1);
+      const box = document.getElementById('line').getBoundingClientRect(), sc = box.width / W;
+      tip.html(`<b>${yr}</b><br>` + series.map(s => `<span style="color:${s.color}">●</span> ${s.name}: <b>${s.vals[i] == null ? 'n/a' : m.fmt(s.vals[i])}</b>`).join('<br>'))
+        .style('left', Math.min(x(yr) * sc + 12, box.width - 260) + 'px').style('top', '10px').style('opacity', 1);
+    })
+    .on('mouseleave', () => { tip.style('opacity', 0); cross.style('opacity', 0); });
+  // table view
+  d3.select('#line-table').html(`<table class="tv"><thead><tr><th>Year</th>${series.map(s => `<th>${s.name}</th>`).join('')}</tr></thead><tbody>`
+    + YEARS.map((yr, i) => `<tr><td>${yr}</td>${series.map(s => `<td>${s.vals[i] == null ? 'n/a' : m.fmt(s.vals[i])}</td>`).join('')}</tr>`).join('') + '</tbody></table>');
+}
+
+// ---- coefficient charts -------------------------------------------------------
+const BURDENS = ['burden30', 'burden50', 'burden_lt35k', 'burden_35_75k', 'burden_75kp'];
+function coefChart(sel, rows, mainLabel) {
+  rows = rows.filter(r => BURDENS.includes(r.key));
+  const W = 520, H = 300, M = { t: 10, r: 18, b: 36, l: 150 };
+  const x = d3.scaleLinear().domain([Math.min(-0.5, d3.min(rows, r => r.lo)), Math.max(0.5, d3.max(rows, r => r.hi))]).nice().range([M.l, W - M.r]);
+  const y = d3.scaleBand().domain(rows.map(r => r.label)).range([M.t, H - M.b]).padding(0.4);
+  const svg = d3.select(sel).html('');
+  svg.append('g').attr('class', 'gridline').attr('transform', `translate(0,${H - M.b})`).call(d3.axisBottom(x).ticks(6).tickSize(-(H - M.t - M.b)).tickFormat(''));
+  svg.append('g').attr('class', 'axis').attr('transform', `translate(0,${H - M.b})`).call(d3.axisBottom(x).ticks(6).tickSizeOuter(0));
+  svg.append('line').attr('class', 'zero').attr('x1', x(0)).attr('x2', x(0)).attr('y1', M.t).attr('y2', H - M.b);
+  svg.append('text').attr('class', 'lbl').attr('x', x(0) + 4).attr('y', H - M.b - 4).text('no amplification');
+  const g = svg.append('g').selectAll('g').data(rows).join('g').attr('transform', r => `translate(0,${y(r.label) + y.bandwidth() / 2})`);
+  g.append('text').attr('class', 'lbl').attr('x', M.l - 10).attr('y', 4).attr('text-anchor', 'end').attr('fill', css('--ink')).text(r => r.label);
+  g.append('line').attr('x1', r => x(r.lo)).attr('x2', r => x(r.hi)).attr('stroke', css('--s1')).attr('stroke-width', 1.5);
+  g.append('line').attr('x1', r => x(r.lo90)).attr('x2', r => x(r.hi90)).attr('stroke', css('--s1')).attr('stroke-width', 4).attr('stroke-linecap', 'round');
+  g.append('circle').attr('cx', r => x(r.b)).attr('r', 5).attr('fill', css('--s1')).attr('stroke', css('--surface')).attr('stroke-width', 2);
+  const tip = d3.select('#tip3');
+  g.append('rect').attr('x', M.l).attr('y', -y.bandwidth() / 2 - 4).attr('width', W - M.l - M.r).attr('height', y.bandwidth() + 8).attr('fill', 'transparent')
+    .on('mousemove', (e, r) => tip.html(`<b>${r.label}</b><br>Interaction: <b>${r.b.toFixed(3)}</b> (SE ${r.se.toFixed(3)})<br>95% CI: ${r.lo.toFixed(3)} to ${r.hi.toFixed(3)}<br>90% CI: ${r.lo90.toFixed(3)} to ${r.hi90.toFixed(3)}<br><span class="k">${mainLabel}: ${r.main.toFixed(3)}</span>`)
+      .style('left', (e.clientX + 14) + 'px').style('top', (e.clientY + 14) + 'px').style('opacity', 1))
+    .on('mouseleave', () => tip.style('opacity', 0));
+}
+function drawCoefs() {
+  coefChart('#coefA', RES.interactions_A, 'Main effect of the employment shock');
+  coefChart('#coefB', RES.interactions_B, 'Main effect of remote work');
+  const row = (r, k) => `<tr><td>${r.label}</td><td>${k}</td><td>${r.b.toFixed(3)}</td><td>${r.se.toFixed(3)}</td><td>${r.lo90.toFixed(3)} to ${r.hi90.toFixed(3)}</td><td>${r.lo.toFixed(3)} to ${r.hi.toFixed(3)}</td></tr>`;
+  d3.select('#coef-table').html('<table class="tv"><thead><tr><th>Outcome</th><th>Shock</th><th>Interaction</th><th>SE</th><th>90% CI</th><th>95% CI</th></tr></thead><tbody>'
+    + RES.interactions_A.map(r => row(r, 'Employment')).join('') + RES.interactions_B.map(r => row(r, 'Remote work')).join('') + '</tbody></table>'
+    + '<p class="note">Log permits and log rent are in the table only, because their units differ from the burden outcomes.</p>');
+}
+
+// ---- event study -----------------------------------------------------------------
+function drawES() {
+  const pts = RES.event.burden30.map(p => ({ ...p, lo: p.b - 1.96 * p.se, hi: p.b + 1.96 * p.se }));
+  const W = 960, H = 320, M = { t: 14, r: 20, b: 34, l: 56 };
+  const x = d3.scalePoint().domain(d3.range(2013, 2025)).range([M.l, W - M.r]).padding(0.3);
+  const y = d3.scaleLinear().domain(d3.extent(pts.flatMap(p => [p.lo, p.hi]))).nice().range([H - M.b, M.t]);
+  const svg = d3.select('#es').html('');
+  svg.append('g').attr('class', 'gridline').attr('transform', `translate(${M.l},0)`).call(d3.axisLeft(y).ticks(5).tickSize(-(W - M.l - M.r)).tickFormat(''));
+  svg.append('g').attr('class', 'axis').attr('transform', `translate(${M.l},0)`).call(d3.axisLeft(y).ticks(5).tickSizeOuter(0));
+  svg.append('g').attr('class', 'axis').attr('transform', `translate(0,${H - M.b})`).call(d3.axisBottom(x).tickFormat(v => v === 2020 ? '' : v).tickSizeOuter(0));
+  svg.append('line').attr('class', 'zero').attr('x1', M.l).attr('x2', W - M.r).attr('y1', y(0)).attr('y2', y(0));
+  svg.append('line').attr('x1', (x(2019) + x(2020)) / 2).attr('x2', (x(2019) + x(2020)) / 2).attr('y1', M.t).attr('y2', H - M.b).attr('stroke', css('--axis')).attr('stroke-dasharray', '4 4');
+  svg.append('text').attr('class', 'lbl').attr('x', (x(2019) + x(2020)) / 2 + 6).attr('y', M.t + 12).text('pandemic');
+  const g = svg.append('g').selectAll('g').data(pts).join('g');
+  g.append('line').attr('x1', p => x(p.year)).attr('x2', p => x(p.year)).attr('y1', p => y(p.lo)).attr('y2', p => y(p.hi)).attr('stroke', css('--s1')).attr('stroke-width', 2);
+  g.append('circle').attr('cx', p => x(p.year)).attr('cy', p => y(p.b)).attr('r', 5).attr('fill', p => p.year === 2019 ? css('--surface') : css('--s1')).attr('stroke', css('--s1')).attr('stroke-width', 2);
+  const tip = d3.select('#tip4');
+  g.append('rect').attr('x', p => x(p.year) - 18).attr('y', M.t).attr('width', 36).attr('height', H - M.t - M.b).attr('fill', 'transparent')
+    .on('mousemove', (e, p) => {
+      const box = document.getElementById('es').getBoundingClientRect(), sc = box.width / W;
+      tip.html(p.year === 2019 ? '<b>2019</b><br>Reference year (set to 0)' : `<b>${p.year}</b><br>Coefficient: <b>${p.b.toFixed(3)}</b><br>95% CI: ${p.lo.toFixed(3)} to ${p.hi.toFixed(3)}`)
+        .style('left', Math.min(x(p.year) * sc + 12, box.width - 200) + 'px').style('top', '10px').style('opacity', 1);
+    })
+    .on('mouseleave', () => tip.style('opacity', 0));
+  const pt = RES.pretrend.burden30;
+  let note = `Joint test that the 2013–2018 coefficients are zero: p = ${pt.p.toFixed(3)}. Average 2021–2024 coefficient: ${pt.avg_post.toFixed(3)} (SE ${pt.avg_post_se.toFixed(3)}); after removing a linear pre-2020 trend: ${pt.detrended_avg_post.toFixed(3)} (SE ${pt.detrended_se.toFixed(3)}).`;
+  if (RES.honestdid) {
+    const h = RES.honestdid.find(x => x.Mbar === 0.5);
+    if (h) note += ` These year-by-year estimates rest on parallel pre-2020 trends. Allowing post-2020 departures up to half the largest pre-2020 year-to-year change (Rambachan–Roth, M̄ = 0.5) widens the 95% interval for the 2021–2024 average to ${h.lb.toFixed(2)} to ${h.ub.toFixed(2)}, so this chart is best read as descriptive.`;
+  }
+  d3.select('#es-note').text(note);
+}
+</script>
+</body>
+</html>
