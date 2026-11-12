@@ -29,3 +29,13 @@ abstract: >-
   the American Community Survey, Building Permits Survey, QCEW, CPI and OMB
   delineations, metro averages of the Wharton and NZLUD regulation indexes,
   tables, figures and an interactive website.
+references:
+  - type: article
+    title: "Regulation, Demand Shocks, and Renter Cost Burdens: Did Land-Use Restrictiveness Shape Who Bore the 2013-2024 Housing Squeeze?"
+    authors:
+      - family-names: Nani
+        given-names: Emmanuel Oti
+        orcid: "https://orcid.org/0009-0009-4175-8962"
+    year: 2026
+    journal: Preprints
+    doi: 10.20944/preprints202611.1208.v1

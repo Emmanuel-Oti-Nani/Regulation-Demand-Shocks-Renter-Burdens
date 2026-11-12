@@ -9,11 +9,29 @@
       "orcid": "0009-0009-4175-8962"
     }
   ],
-  "keywords": ["land-use regulation", "housing affordability", "rent burden", "housing supply", "shift-share", "remote work", "metropolitan areas"],
+  "keywords": [
+    "land-use regulation",
+    "housing affordability",
+    "rent burden",
+    "housing supply",
+    "shift-share",
+    "remote work",
+    "metropolitan areas"
+  ],
   "license": "cc-by-4.0",
   "access_right": "open",
   "language": "eng",
   "related_identifiers": [
-    {"identifier": "https://emmanuel-oti-nani.github.io/Regulation-Demand-Shocks-Renter-Burdens/", "relation": "isDocumentedBy", "resource_type": "other"}
+    {
+      "identifier": "https://emmanuel-oti-nani.github.io/Regulation-Demand-Shocks-Renter-Burdens/",
+      "relation": "isDocumentedBy",
+      "resource_type": "other"
+    },
+    {
+      "identifier": "10.20944/preprints202611.1208.v1",
+      "relation": "isSupplementTo",
+      "resource_type": "publication-preprint",
+      "scheme": "doi"
+    }
   ]
 }
